@@ -9,6 +9,7 @@ ready(function() {
   var targetEl = document.querySelector('.splash--home-page');
   var countdownDiv = document.createElement('section');
   countdownDiv.classList.add('wrap');
+  countdownDiv.classList.add('container-fluid');
   countdownDiv.classList.add('countdown__container');
 
   countdownDiv.innerHTML = countdownTemplate.innerHTML;

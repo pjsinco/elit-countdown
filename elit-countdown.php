@@ -15,21 +15,48 @@ if (!defined('WPINC')) {
 
 
 function elit_countdown_enqueue_scripts() {
-    $css_file = 'elit-downloadable.css';
+    $css_file = 'elit-countdown.css';
     $css_path = "public/styles/$css_file";
-    $js_file = 'elit-downloadable-bundle.js';
+    $js_file = 'elit-countdown-bundle.js';
     $js_path = "public/scripts/$js_file";
 
-    wp_register_script(
-      'countdown',
-      get_template_directory_uri() . '/scripts/countdown.js',
-      array(),
-      null,
-      true
-    );
-
     if ( is_front_page() ) {
-      wp_enqueue_script( 'countdown' );
+        wp_enqueue_script(
+            'countdown-js',
+            plugins_url( $js_path, __FILE__ ),
+            array(),
+            filemtime( plugin_dir_path(__FILE__) . "/" . $js_path ),
+            true
+        );
+
+        wp_enqueue_style(
+            'countdown-css',
+            plugins_url( $css_path, __FILE__ ),
+            array(),
+            filemtime( plugin_dir_path(__FILE__) . "/" . $css_path ),
+            'all'
+        );
     }
 }
 add_action( 'wp_enqueue_scripts', 'elit_countdown_enqueue_scripts' );
+
+function elit_countdown_add_markup( $content ) {
+    if ( is_front_page() ) {
+?>
+        <script type="text/template" id="countdownTemplate">
+                <div class="countdown hide reveal">
+                    <div class="countdown__display reveal"><div class="countdown__figure" id="days"></div> days</div>
+                    <div class="countdown__display reveal"><div class="countdown__figure" id="hours"></div> hours</div>
+                    <div class="countdown__display reveal"><div class="countdown__figure" id="minutes"></div> min</div>
+                    <div class="countdown__display reveal"><div class="countdown__figure" id="seconds"></div> sec</div>
+                </div>
+                <div class="countdown__title">Countdown to OMED 2019</div>
+        </script>
+<?php
+    }
+
+    return $content;
+}
+add_filter( 'the_content', 'elit_countdown_add_markup', 10, 1 );
+
+

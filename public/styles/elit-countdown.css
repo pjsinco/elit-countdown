@@ -1,4 +1,67 @@
+.countdown__container {
+  position: relative;
+  top: -210px;
+  z-index: 3;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
+
 .countdown {
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  text-align: center;
+  color: #FFFFFF;
+  background-image: linear-gradient(135deg, #D608AF 0%, #4698E0 100%);
+  border-radius: 2px; }
+
+.countdown__title {
+  width: 280px;
+  margin-top: 11px;
+  text-align: center;
+  font-size: 18px;
+  color: #006; }
+
+.countdown__display {
+  position: relative;
+  width: 70px;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: .875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+  .countdown__display:not(:last-child):after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+    height: 100%;
+    border: 0.5px solid rgba(255, 255, 255, 0.4); }
+
+.countdown__figure {
+  margin-bottom: 4px;
+  font-size: 2.625rem;
+  font-family: 'gotham-light'; }
+
+.hide {
+  display: none !important; }
+
+.reveal {
+  opacity: 0;
+  transition: opacity .3s ease-out; }
+
+.reveal.on {
+  opacity: 1; }
+
+.time:not(:last-child) {
+  margin-right: 1rem; }

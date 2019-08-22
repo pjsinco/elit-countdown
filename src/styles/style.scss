@@ -3,6 +3,7 @@ $countdown_item_width: 70px;
 .countdown__container {
   position: relative;
   top: -210px;
+  height: 0;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -18,7 +19,7 @@ $countdown_item_width: 70px;
 }
 
 .countdown__title {
-  width: 280px;
+  width: 4 * $countdown_item_width;
   margin-top: 11px;
   text-align: center;
   font-size: 18px;

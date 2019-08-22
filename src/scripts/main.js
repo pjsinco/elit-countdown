@@ -8,7 +8,8 @@ ready(function() {
   var countdownTemplate = document.querySelector('#countdownTemplate');
   var targetEl = document.querySelector('.splash--home-page');
   var countdownDiv = document.createElement('section');
-  countdownDiv.classList.add('wrap', 'countdown__container');
+  countdownDiv.classList.add('wrap');
+  countdownDiv.classList.add('countdown__container');
 
   countdownDiv.innerHTML = countdownTemplate.innerHTML;
 
@@ -20,7 +21,6 @@ ready(function() {
   var SECONDS = 1000;
 
   var omedDate = 'October 25, 2019 00:00:00';
-  //var omedDate = 'August 22, 2019 13:03:00'
   var target = new Date(omedDate).getTime();
   var now = Date.now();
 

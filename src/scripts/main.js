@@ -21,7 +21,7 @@ ready(function() {
   var MINUTES = 60 * 1000;
   var SECONDS = 1000;
 
-  var omedDate = 'October 25, 2019 00:00:00';
+  var omedDate = 'October 25, 2019 08:00:00';
   var target = new Date(omedDate).getTime();
   var now = Date.now();
 

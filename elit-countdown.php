@@ -50,7 +50,7 @@ function elit_countdown_add_markup( $content ) {
                     <div class="countdown__display reveal"><div class="countdown__figure" id="minutes"></div> min</div>
                     <div class="countdown__display reveal"><div class="countdown__figure" id="seconds"></div> sec</div>
                 </div>
-                <div class="countdown__title">Countdown to OMED 2019</div>
+                <div class="countdown__title hide">Countdown to OMED 2019</div>
         </script>
 <?php
     }

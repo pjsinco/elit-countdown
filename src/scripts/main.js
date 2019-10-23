@@ -3,8 +3,6 @@ var ready = function(cb) {
 };
 
 ready(function() {
-  console.log('hiyafromcountdown');
-
   var countdownTemplate = document.querySelector('#countdownTemplate');
   var targetEl = document.querySelector('.splash--home-page');
   var countdownDiv = document.createElement('section');
@@ -36,6 +34,7 @@ ready(function() {
   if (target - now > 0) {
     populateCountdown(target - now);
     document.querySelector('.countdown').classList.remove('hide');
+    document.querySelector('.countdown__title').classList.remove('hide');
 
     var reveals = document.querySelectorAll('.reveal');
     for (var i = 0, len = reveals.length; i < len; i++) {
@@ -72,9 +71,10 @@ ready(function() {
 
     if (secondsToGo < 0) {
       clearInterval(tick);
-      var countdownEl = document.querySelector('.countdown');
-      if (countdownEl) {
-        countdownEl.parentElement.removeChild(countdownEl);
+      var countdownContainer = document.querySelector('.countdown__container');
+      if (countdownContainer) {
+        countdownContainer.removeChild(document.querySelector('.countdown'))
+        countdownContainer.removeChild(document.querySelector('.countdown__title'))
       }
     }
   }, 1000);

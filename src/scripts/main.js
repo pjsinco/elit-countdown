@@ -26,7 +26,9 @@ ready(function() {
   var now = Date.now();
 
   var daysEl = document.querySelector('#days');
+  var daysStrEl = document.querySelector('#daysString');
   var hoursEl = document.querySelector('#hours');
+  var hoursStrEl = document.querySelector('#hoursString');
   var minutesEl = document.querySelector('#minutes');
   var secondsEl = document.querySelector('#seconds');
 
@@ -41,6 +43,10 @@ ready(function() {
     }
   }
 
+  function formatTimeString(singularTimeString, time) {
+    return (time == 1 ? singularTimeString : singularTimeString + 's');
+  }
+
   function populateCountdown(secondsToGo) {
     var days = Math.floor(secondsToGo / DAYS);
     var hours = Math.floor((secondsToGo % DAYS) / HOURS);
@@ -48,8 +54,13 @@ ready(function() {
     var seconds = Math.floor((secondsToGo % MINUTES) / SECONDS);
 
     daysEl.innerHTML = days;
+    daysStrEl.innerHTML = formatTimeString('day', days);
+
     hoursEl.innerHTML = hours;
+    hoursStrEl.innerHTML = formatTimeString('hour', hours);
+
     minutesEl.innerHTML = minutes;
+
     secondsEl.innerHTML = seconds;
   }
 

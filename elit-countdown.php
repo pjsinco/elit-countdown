@@ -45,8 +45,8 @@ function elit_countdown_add_markup( $content ) {
 ?>
         <script type="text/template" id="countdownTemplate">
                 <div class="countdown hide reveal">
-                    <div class="countdown__display reveal"><div class="countdown__figure" id="days"></div> days</div>
-                    <div class="countdown__display reveal"><div class="countdown__figure" id="hours"></div> hours</div>
+                    <div class="countdown__display reveal"><div class="countdown__figure" id="days"></div> <span id="daysString">days</span></div>
+                    <div class="countdown__display reveal"><div class="countdown__figure" id="hours"></div> <span id="hoursString">hours</span></div>
                     <div class="countdown__display reveal"><div class="countdown__figure" id="minutes"></div> min</div>
                     <div class="countdown__display reveal"><div class="countdown__figure" id="seconds"></div> sec</div>
                 </div>
